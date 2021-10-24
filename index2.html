@@ -16,8 +16,8 @@ layout: gallery
     </header>
 
     <!-- Main -->
-    <div id="main">
-
+    <div id="wrap">
+        <div id="try"></div>
         <ul id="box-container">
             {% for image in site.static_files reversed %}
             {% if image.path contains 'fulls' %}
