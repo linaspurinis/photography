@@ -9,9 +9,9 @@ layout: null
  <link>{{ site.url }}</link>
  <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
  <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
- <ttl>1800</ttl>
 {% for image in site.static_files reversed %}
 {% if image.path contains 'fulls' %}
+ <item>
   <title>{{ image.name }}</title>
   <link>{{ site.url }}/{{ site.image_fulls_loc }}/{{ image.name }}</link>
   <guid isPermaLink="true">{{ site.url }}/{{ site.image_fulls_loc }}/{{ image.name }}</guid>
