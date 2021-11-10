@@ -1,7 +1,7 @@
 # Base configs
-baseurl: "https://photography.purinis.lt"
-image_fulls_loc: "/images/fulls"
-image_thumbs_loc: "/images/thumbs"
+baseurl: "/"
+image_fulls_loc: "images/fulls"
+image_thumbs_loc: "images/thumbs"
 #google_analytics: "UA-46465113-2"
 
 # UI configs
@@ -23,3 +23,7 @@ social_urls:
 #  dribbble: "https://dribbble.com/rampatra"
 #  linkedin: "https://in.linkedin.com/in/ram-patra"
 #  github: "https://www.github.com/rampatra"
+
+plugins:
+  - jekyll-feed
+
