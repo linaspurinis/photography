@@ -9,15 +9,26 @@ layout: null
  <link>{{ site.url }}</link>
  <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
  <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-{% for image in site.static_files reversed %}
-{% if image.path contains 'fulls' %}
+{%- for image in site.static_files reversed -%}
+{%- if image.path contains 'fulls' -%}
  <item>
-  <title>{{ image.name }}</title>
+    {% assign title = false %}
+    {%- for tfile in site.static_files reversed -%}
+        {%- if tfile.path contains 'texts' -%}
+            {%- if tfile.path contains image.basename -%}
+                {%- assign title = true -%}
+                <title>{% include_relative /images/texts/{{ tfile.name }} %}</title>
+            {%- endif -%}
+        {%- endif -%}
+    {%- endfor -%}
+    {%- if title != true -%}
+        <title>{{ image.name }}</title>
+    {%- endif -%}
   <link>{{ site.url }}/{{ site.image_fulls_loc }}/{{ image.name }}</link>
   <guid isPermaLink="true">{{ site.url }}/{{ site.image_fulls_loc }}/{{ image.name }}</guid>
   <pubDate>{{ image.date | date_to_rfc822 }}</pubDate>
  </item>
 {% endif %}
-{% endfor %}
+{%- endfor -%}
 </channel>
 </rss>
